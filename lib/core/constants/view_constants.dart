@@ -13,11 +13,12 @@ class ViewConstants {
   static const String taskTitle = 'Task Title';
   static const String saveNewTodo = 'Save';
   static const String taskTime = '10:00 AM';
-  static const String taskDescription = 'Task Description';
+  static const String taskDescription = 'Description';
   static const String taskDate = '19/05/2025';
   static const String viewAllTodos = 'Tasks To-Do';
   static const String detailedView = 'Task Details';
   static const String editTask = 'Edit';
   static const String deleteTask = 'Delete';
   static const String doneTask = 'Done';
+  static const String markAsDone = 'Mark Completed';
 }

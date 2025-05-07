@@ -70,26 +70,26 @@ class HomeView extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     // 1. To-do
-                    Container(
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(
-                          AppConstants.gap14Px,
-                        ),
-                        color: LightTheme.lightGreyColor,
-                      ),
-                      padding: const EdgeInsets.all(AppConstants.gap10Px),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Icon(
-                            Icons.checklist_rounded,
-                            size: AppConstants.font24Px * 3,
-                          ),
-                          const SizedBox(height: AppConstants.gap10Px),
-                          Text(ViewConstants.todo),
-                        ],
-                      ),
-                    ),
+                    // Container(
+                    //   decoration: BoxDecoration(
+                    //     borderRadius: BorderRadius.circular(
+                    //       AppConstants.gap14Px,
+                    //     ),
+                    //     color: LightTheme.lightGreyColor,
+                    //   ),
+                    //   padding: const EdgeInsets.all(AppConstants.gap10Px),
+                    //   child: Column(
+                    //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    //     children: [
+                    //       Icon(
+                    //         Icons.checklist_rounded,
+                    //         size: AppConstants.font24Px * 3,
+                    //       ),
+                    //       const SizedBox(height: AppConstants.gap10Px),
+                    //       Text(ViewConstants.todo),
+                    //     ],
+                    //   ),
+                    // ),
 
                     // 2. In Progress
                     Container(

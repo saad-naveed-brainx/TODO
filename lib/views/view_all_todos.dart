@@ -35,11 +35,14 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                     child: Row(
                       children: [
                         GestureDetector(
-                          onTap: () {
-                            AppRouter.moveToDetailedView(
+                          onTap: () async {
+                            String? result = await AppRouter.moveToDetailedView(
                               context,
                               provider.todos[index].id,
                             );
+                            if (result == "deleted") {
+                              context.read<TodoProvider>().notifyListeners();
+                            }
                           },
                           child: SizedBox(
                             width: MediaQuery.of(context).size.width * 0.7,
@@ -63,7 +66,9 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                                       ),
                                     ),
                                     Text(
-                                      provider.todos[index].description.trim(),
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      provider.todos[index].description,
                                       style: TextStyle(
                                         fontSize: AppConstants.gap16Px,
                                       ),
@@ -100,8 +105,8 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                                     quarterTurns: 3,
                                     child: Text(
                                       provider.todos[index].isDone
-                                          ? 'Done'
-                                          : 'To-Do',
+                                          ? 'Completed'
+                                          : 'In Progress',
                                       style: TextStyle(
                                         fontSize: AppConstants.gap24Px,
                                         fontWeight: FontWeight.bold,
