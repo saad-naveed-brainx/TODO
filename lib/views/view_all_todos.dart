@@ -21,12 +21,13 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
 
   @override
   Widget build(BuildContext context) {
+    final todos = context.watch<TodoProvider>().todos;
     return Scaffold(
       appBar: AppBar(title: Text(ViewConstants.viewAllTodos)),
       body: Consumer<TodoProvider>(
         builder:
             (context, provider, child) => ListView.builder(
-              itemCount: provider.todos.length,
+              itemCount: todos.length,
               itemBuilder:
                   (context, index) => Padding(
                     padding: const EdgeInsets.symmetric(
@@ -38,7 +39,7 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                           onTap: () async {
                             String? result = await AppRouter.moveToDetailedView(
                               context,
-                              provider.todos[index].id,
+                              todos[index].id,
                             );
                             if (result == "deleted") {
                               context.read<TodoProvider>().notifyListeners();
@@ -59,7 +60,7 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                                       MainAxisAlignment.spaceEvenly,
                                   children: [
                                     Text(
-                                      provider.todos[index].title,
+                                      todos[index].title,
                                       style: TextStyle(
                                         fontSize: AppConstants.gap24Px,
                                         fontWeight: FontWeight.bold,
@@ -68,15 +69,13 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                                     Text(
                                       maxLines: 1,
                                       overflow: TextOverflow.ellipsis,
-                                      provider.todos[index].description,
+                                      todos[index].description,
                                       style: TextStyle(
                                         fontSize: AppConstants.gap16Px,
                                       ),
                                     ),
                                     Text(
-                                      provider.todos[index].dueTime.format(
-                                        context,
-                                      ),
+                                      todos[index].dueTime.format(context),
                                       style: TextStyle(
                                         fontSize: AppConstants.gap24Px,
                                         fontWeight: FontWeight.bold,
@@ -104,7 +103,7 @@ class _ViewAllTodosState extends State<ViewAllTodos> {
                                   RotatedBox(
                                     quarterTurns: 3,
                                     child: Text(
-                                      provider.todos[index].isDone
+                                      todos[index].isDone
                                           ? 'Completed'
                                           : 'In Progress',
                                       style: TextStyle(

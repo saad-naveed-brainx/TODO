@@ -90,8 +90,8 @@ class DetailedView extends StatelessWidget {
                         const SizedBox(width: AppConstants.gap10Px),
                         Text(
                           todo.isDone
-                              ? ViewConstants.todo
-                              : ViewConstants.inProgress,
+                              ? ViewConstants.completed
+                              : ViewConstants.markAsDone,
                           style: TextStyle(fontSize: AppConstants.gap22Px),
                         ),
                       ],
